@@ -6,10 +6,11 @@ import (
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
+	"io"
 )
 
 const (
-	ARK_API_KEY = "xxx"
+	ARK_API_KEY = "xxxxxxxxxxx"
 )
 
 func GetByDoubao(role string, cueWord string) (res string, err error) {
@@ -22,7 +23,7 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 	ctx := context.Background()
 
 	req := model.ChatCompletionRequest{
-		Model: "xxx",
+		Model: "xxxx",
 		Messages: []*model.ChatCompletionMessage{
 			{
 				Role: model.ChatMessageRoleSystem,
@@ -46,4 +47,56 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 	}
 	res = *resp.Choices[0].Message.Content.StringValue
 	return res, err
+}
+
+func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
+	client := arkruntime.NewClientWithApiKey(
+		ARK_API_KEY,
+		arkruntime.WithBaseUrl("https://ark.cn-beijing.volces.com/api/v3"),
+		arkruntime.WithRegion("cn-beijing"),
+	)
+
+	ctx := context.Background()
+
+	req := model.ChatCompletionRequest{
+		Model: "ep-20241009084709-ppx6p",
+		Messages: []*model.ChatCompletionMessage{
+			{
+				Role: model.ChatMessageRoleSystem,
+				Content: &model.ChatCompletionMessageContent{
+					StringValue: volcengine.String(role),
+				},
+			},
+			{
+				Role: model.ChatMessageRoleUser,
+				Content: &model.ChatCompletionMessageContent{
+					StringValue: volcengine.String(cueWord),
+				},
+			},
+		},
+	}
+
+	stream, err := client.CreateChatCompletionStream(ctx, req)
+	if err != nil {
+		fmt.Printf("stream chat error: %v\n", err)
+		return
+	}
+	defer stream.Close()
+
+	for {
+		recv, err := stream.Recv()
+		if err == io.EOF {
+			return
+		}
+		if err != nil {
+			fmt.Printf("Stream chat error: %v\n", err)
+			return
+		}
+
+		if len(recv.Choices) > 0 {
+			ch <- fmt.Sprintf(recv.Choices[0].Delta.Content)
+		}
+	}
+	close(ch)
+	return
 }

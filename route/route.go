@@ -12,6 +12,10 @@ func Init() {
 		controller.GenerateGuide(c)
 	})
 
+	route.GET("/ai/generateGuideSSE", func(c *gin.Context) {
+		controller.GenerateGuideSSE(c)
+	})
+
 	route.GET("/guide/create", func(c *gin.Context) {
 		controller.Create(c)
 	})
