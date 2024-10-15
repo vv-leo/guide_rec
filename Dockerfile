@@ -17,7 +17,10 @@ RUN go mod download
 
 # 将我们的代码编译成二进制可执行文件app
 RUN go build -o main .
- 
+
+# 设置环境变量
+ENV MY_ENV="pro"
+
 # 声明服务端口
 EXPOSE 8080
  
