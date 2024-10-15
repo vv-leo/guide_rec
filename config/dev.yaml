@@ -1,0 +1,9 @@
+db:
+  host: 127.0.0.1
+  userName: xxx
+  password: xxx
+  port: 3306
+  dataBase: xxx
+doubao:
+  apiKey: xxxxxxxxxx
+  modelId: xxxxxx

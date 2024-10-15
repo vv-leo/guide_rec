@@ -2,6 +2,7 @@ package model
 
 import (
 	"fmt"
+	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -11,9 +12,14 @@ import (
 var db *gorm.DB
 
 func InitMysql() {
-	//todo暂时写死，后续可以考虑加入放到不同环境中
+	// 访问配置值
+	dbUsername := viper.GetString("db.userName")
+	dbPassword := viper.GetString("db.password")
+	dbHost := viper.GetString("db.host")
+	dbPort := viper.GetString("db.port")
+	dbDatabase := viper.GetString("db.dataBase")
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		"", "xxxx", "xxxx, "xxx", "xxx")
+		dbUsername, dbPassword, dbHost, dbPort, dbDatabase)
 	//fmt.Println(dsn)
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),

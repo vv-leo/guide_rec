@@ -3,19 +3,16 @@ package utils
 import (
 	"context"
 	"fmt"
+	"github.com/spf13/viper"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime"
 	"github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
 	"io"
 )
 
-const (
-	ARK_API_KEY = "xxxxxxxxxxx"
-)
-
 func GetByDoubao(role string, cueWord string) (res string, err error) {
 	client := arkruntime.NewClientWithApiKey(
-		ARK_API_KEY,
+		viper.GetString("doubao.apiKey"),
 		arkruntime.WithBaseUrl("https://ark.cn-beijing.volces.com/api/v3"),
 		arkruntime.WithRegion("cn-beijing"),
 	)
@@ -23,7 +20,7 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 	ctx := context.Background()
 
 	req := model.ChatCompletionRequest{
-		Model: "xxxx",
+		Model: viper.GetString("doubao.modelId"),
 		Messages: []*model.ChatCompletionMessage{
 			{
 				Role: model.ChatMessageRoleSystem,
@@ -51,7 +48,7 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 
 func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
 	client := arkruntime.NewClientWithApiKey(
-		ARK_API_KEY,
+		viper.GetString("doubao.apiKey"),
 		arkruntime.WithBaseUrl("https://ark.cn-beijing.volces.com/api/v3"),
 		arkruntime.WithRegion("cn-beijing"),
 	)
@@ -59,7 +56,7 @@ func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
 	ctx := context.Background()
 
 	req := model.ChatCompletionRequest{
-		Model: "ep-20241009084709-ppx6p",
+		Model: viper.GetString("doubao.modelId"),
 		Messages: []*model.ChatCompletionMessage{
 			{
 				Role: model.ChatMessageRoleSystem,
