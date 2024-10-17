@@ -27,7 +27,7 @@ func GenerateGuideSSE(c *gin.Context) {
 	cueWord := c.Query("cueWord")
 	ch := make(chan string)
 
-	go utils.GetByDoubaoSSE("你是豆包，是一名出游规划专家", cueWord+"，必须控制在200字以内", ch)
+	go utils.GetByDoubaoSSE("你是豆包，是一名出游规划专家", cueWord+"，必须控制在150字以内", ch)
 	for response := range ch {
 		fmt.Fprintf(c.Writer, response)
 		fmt.Printf(response)

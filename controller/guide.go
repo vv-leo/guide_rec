@@ -14,16 +14,27 @@ func GuideCreate(c *gin.Context) {
 	err := c.ShouldBindJSON(&guide)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
 
 	success, err := guideSer.Create(guide)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": success})
 }
 
 func GuideDetail(c *gin.Context) {
-	id := c.GetString("id")
-	guideSer.Detail(id)
+	id := c.Query("id")
+	if len(id) == 0 {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "id不能为空"})
+		return
+	}
+	guide, err := guideSer.Detail(id)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": guide})
 }

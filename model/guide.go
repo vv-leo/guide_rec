@@ -9,14 +9,19 @@ type Guide struct {
 	Id          int       `json:"id"`
 	Owner       string    `json:"owner"`
 	SalesStatus int       `json:"sales_status"`
-	Price       int       `json:"price"`
+	Price       float64   `json:"price"`
 	Content     string    `json:"content"`
 	LikeCount   int       `json:"like_count"`
 	CreateTime  time.Time `json:"create_time"`
 }
 
+func (Guide) TableName() string {
+	return "guide"
+}
+
 type GuideDao interface {
 	SaveGuide(guide Guide) (success bool, err error)
+	DetailGuide(id string) (guide *Guide, err error)
 }
 
 func NewGuideDao() GuideDao {
@@ -27,7 +32,7 @@ type guideDao struct {
 }
 
 func (dao *guideDao) operateTable() *gorm.DB {
-	return db.Table("guide")
+	return db.Table("jjj")
 }
 
 func (s *guideDao) SaveGuide(guide Guide) (success bool, err error) {
@@ -37,12 +42,9 @@ func (s *guideDao) SaveGuide(guide Guide) (success bool, err error) {
 	return true, nil
 }
 
-func (s *guideDao) DetailGuide(id string) (guide Guide, err error) {
-	if res := s.operateTable().First(&Guide{}, id); res.Error != nil {
-		return , res.Error
+func (s *guideDao) DetailGuide(id string) (guide *Guide, err error) {
+	if res := db.First(&guide, id); res.Error != nil {
+		return nil, res.Error
 	}
-	//if res := s.operateTable().Create(&guide); res.Error != nil {
-	//	return false, res.Error
-	//}
-	return true, nil
+	return guide, nil
 }

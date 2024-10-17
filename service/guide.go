@@ -31,5 +31,6 @@ func (s *guideService) Create(guide model.Guide) (success bool, err error) {
 }
 
 func (s *guideService) Detail(id string) (guide *model.Guide, err error) {
-
+	guideDetail, err := guideDao.DetailGuide(id)
+	return guideDetail, err
 }
