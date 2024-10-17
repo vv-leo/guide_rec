@@ -9,6 +9,7 @@ var guideDao = model.NewGuideDao()
 
 type GuideService interface {
 	Create(guide model.Guide) (success bool, err error)
+	Detail(id string) (guide *model.Guide, err error)
 }
 
 func NewGuideService() GuideService {
@@ -26,4 +27,9 @@ func (s *guideService) Create(guide model.Guide) (success bool, err error) {
 	guide.CreateTime = time.Now()
 	saveGuide, err := guideDao.SaveGuide(guide)
 	return saveGuide, err
+
+}
+
+func (s *guideService) Detail(id string) (guide *model.Guide, err error) {
+
 }

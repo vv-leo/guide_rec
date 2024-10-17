@@ -10,7 +10,7 @@ func ViperInit() {
 
 	env := os.Getenv("MY_ENV")
 	if len(env) == 0 {
-		env = "dev"
+		env = "pro"
 	}
 	//environment := "dev"
 	//args := os.Args

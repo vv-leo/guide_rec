@@ -20,6 +20,7 @@ func InitMysql() {
 	dbDatabase := viper.GetString("db.dataBase")
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		dbUsername, dbPassword, dbHost, dbPort, dbDatabase)
+
 	//fmt.Println(dsn)
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),

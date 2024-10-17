@@ -94,6 +94,4 @@ func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
 			ch <- fmt.Sprintf(recv.Choices[0].Delta.Content)
 		}
 	}
-	close(ch)
-	return
 }

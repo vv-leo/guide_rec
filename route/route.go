@@ -17,7 +17,11 @@ func Init() {
 	})
 
 	route.GET("/guide/create", func(c *gin.Context) {
-		controller.Create(c)
+		controller.GuideCreate(c)
+	})
+
+	route.GET("/guide/detail", func(c *gin.Context) {
+		controller.GuideDetail(c)
 	})
 
 	route.Run(":8080")

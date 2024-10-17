@@ -36,3 +36,13 @@ func (s *guideDao) SaveGuide(guide Guide) (success bool, err error) {
 	}
 	return true, nil
 }
+
+func (s *guideDao) DetailGuide(id string) (guide Guide, err error) {
+	if res := s.operateTable().First(&Guide{}, id); res.Error != nil {
+		return , res.Error
+	}
+	//if res := s.operateTable().Create(&guide); res.Error != nil {
+	//	return false, res.Error
+	//}
+	return true, nil
+}
