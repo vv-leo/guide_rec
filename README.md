@@ -41,11 +41,11 @@
 ### 部署
 
 ```
-docker build -t main .
+docker build -t guide_rec .
 ```
 
 ```
-docker run -p 8080:8080 -d golang-hello-world:v1
+docker run -d -p 8080:8080 --name guide-go -e MY_ENV="pro" guide_rec
 ```
 
 

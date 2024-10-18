@@ -32,7 +32,7 @@ type guideDao struct {
 }
 
 func (dao *guideDao) operateTable() *gorm.DB {
-	return db.Table("jjj")
+	return db.Table("guide")
 }
 
 func (s *guideDao) SaveGuide(guide Guide) (success bool, err error) {

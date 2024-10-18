@@ -10,6 +10,7 @@ var guideDao = model.NewGuideDao()
 type GuideService interface {
 	Create(guide model.Guide) (success bool, err error)
 	Detail(id string) (guide *model.Guide, err error)
+	ThumbsUp(id string, account string, status string) (success bool, err error)
 }
 
 func NewGuideService() GuideService {
@@ -33,4 +34,10 @@ func (s *guideService) Create(guide model.Guide) (success bool, err error) {
 func (s *guideService) Detail(id string) (guide *model.Guide, err error) {
 	guideDetail, err := guideDao.DetailGuide(id)
 	return guideDetail, err
+}
+
+func (s *guideService) ThumbsUp(id string, account string, status string) (success bool, err error) {
+
+	model.GetRedisValue(account)
+	return true, nil
 }

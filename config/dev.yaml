@@ -7,3 +7,7 @@ db:
 doubao:
   apiKey: xxxxxxxxxx
   modelId: xxxxxx
+redis:
+  address: xxxxxx:6379
+  password: xxxx
+  db: 0

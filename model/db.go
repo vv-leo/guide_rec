@@ -11,7 +11,7 @@ import (
 
 var db *gorm.DB
 
-func InitMysql() {
+func ConnectMysql() {
 	// 访问配置值
 	dbUsername := viper.GetString("db.userName")
 	dbPassword := viper.GetString("db.password")

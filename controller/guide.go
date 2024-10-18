@@ -38,3 +38,19 @@ func GuideDetail(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": guide})
 }
+
+func GuideThumbsUp(c *gin.Context) {
+	id := c.Query("id")
+	account := c.Query("account")
+	status := c.Query("status")
+	if len(id) == 0 || len(account) == 0 || len(status) == 0 {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "参数错误"})
+		return
+	}
+	guide, err := guideSer.ThumbsUp(id, account, status)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": guide})
+}
