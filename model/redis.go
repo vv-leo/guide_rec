@@ -31,3 +31,7 @@ func GetRedisValue(key string) string {
 	}
 	return value
 }
+
+func DelRedisKey(key string) {
+	redisClient.Del(key)
+}
