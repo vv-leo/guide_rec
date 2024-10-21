@@ -1,6 +1,7 @@
 package route
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"web3/controller"
 )
@@ -8,6 +9,8 @@ import (
 func Init() {
 
 	route := gin.Default()
+
+	route.Use(cors.Default())
 
 	route.GET("/ai/generateGuide", func(c *gin.Context) { controller.GenerateGuide(c) })
 
