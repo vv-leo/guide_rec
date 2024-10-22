@@ -20,9 +20,13 @@
 
 - 使用的主要 Golang 特性和库：
   - gin
-  - viper
+  - go-ethereum
   - 豆包大模型sdk
   - gorm
+  - viper
+  - redis
+  - mysql
+  - abigen
 
 
 
