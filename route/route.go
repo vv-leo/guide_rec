@@ -32,5 +32,9 @@ func Init() {
 
 	route.GET("/user/follow", func(c *gin.Context) { controller.UserFollow(c) })
 
+	route.GET("/user/thumbsUped", func(c *gin.Context) { controller.UserThumbsUped(c) })
+
+	route.GET("/user/followed", func(c *gin.Context) { controller.UserFollowed(c) })
+
 	route.Run(":8080")
 }

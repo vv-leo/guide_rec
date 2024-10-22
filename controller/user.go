@@ -54,3 +54,23 @@ func UserFollow(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": success})
 }
+
+func UserThumbsUped(c *gin.Context) {
+	from := c.Query("id")
+	if len(from) == 0 {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "参数错误"})
+		return
+	}
+	followed := userSer.GetThumbsUped(from)
+	c.JSON(http.StatusOK, gin.H{"data": followed})
+}
+
+func UserFollowed(c *gin.Context) {
+	from := c.Query("id")
+	if len(from) == 0 {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "参数错误"})
+		return
+	}
+	followed := userSer.GetFollowed(from)
+	c.JSON(http.StatusOK, gin.H{"data": followed})
+}

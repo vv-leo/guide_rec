@@ -32,6 +32,14 @@ func GetRedisValue(key string) string {
 	return value
 }
 
+func GetRedisKeys(wildcard string) []string {
+	keys, err := redisClient.Keys(wildcard).Result()
+	if err != nil {
+		return make([]string, 0)
+	}
+	return keys
+}
+
 func DelRedisKey(key string) {
 	redisClient.Del(key)
 }
