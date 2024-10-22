@@ -29,10 +29,13 @@ func GenerateGuideSSE(c *gin.Context) {
 
 	go utils.GetByDoubaoSSE("你是豆包，是一名出游规划专家", cueWord+"，必须控制在150字以内", ch)
 	for response := range ch {
-		fmt.Fprintf(c.Writer, response)
+		//fmt.Fprintf(c.Writer, response)
 		fmt.Printf(response)
 		if f, ok := c.Writer.(http.Flusher); ok {
 			f.Flush()
+		}
+		if len(response) == 0 || response == "end" {
+			close(ch)
 		}
 	}
 }

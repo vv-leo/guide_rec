@@ -11,21 +11,22 @@ type Guide struct {
 	SalesStatus int    `json:"sales_status"`
 	Price       string `json:"price"`
 	Content     string `json:"content"`
+	Description string `json:"description"`
 	LikeCount   int    `json:"like_count"`
 	CreateTime  int64  `json:"create_time"`
 }
 
 type GuideRec struct {
-	Id          int    `json:"id"`
-	Owner       string `json:"owner"`
-	SalesStatus int    `json:"sales_status"`
-	Price       string `json:"price"`
-	Content     string `json:"content"`
-	LikeCount   int    `json:"like_count"`
-	CreateTime  int64  `json:"create_time"`
-	FansCount   int    `json:"fans_count"`
-	Avatar      string `json:"avatar"`
-	Description string `json:"description"`
+	Id              int    `json:"id"`
+	Owner           string `json:"owner"`
+	SalesStatus     int    `json:"sales_status"`
+	Price           string `json:"price"`
+	Content         string `json:"content"`
+	LikeCount       int    `json:"like_count"`
+	CreateTime      int64  `json:"create_time"`
+	FansCount       int    `json:"fans_count"`
+	Avatar          string `json:"avatar"`
+	UserDescription string `json:"user_description"`
 }
 
 type GuideDao interface {
@@ -86,7 +87,7 @@ func (s *guideDao) ThumbsUp(id string, status string) (bool bool, err error) {
 
 func (s *guideDao) Rec() (guideRecs *[]GuideRec, err error) {
 	if res := s.operateTable().Select("guide.id AS Id, guide.owner AS Owner,guide.sales_status AS SalesStatus,guide.price AS Price,guide.content AS Content," +
-		"guide.like_count AS LikeCount,guide.create_time AS CreateTime,user.fans_count AS FansCount, user.avatar AS Avatar,user.description AS Description").
+		"guide.like_count AS LikeCount,guide.create_time AS CreateTime,user.fans_count AS FansCount, user.avatar AS Avatar,user.description AS UserDescription").
 		Joins("guide LEFT JOIN user ON guide.owner = user.id").
 		Scan(&guideRecs); res.Error != nil {
 		return guideRecs, res.Error

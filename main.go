@@ -10,5 +10,6 @@ func main() {
 	config.ViperInit()
 	model.ConnectMysql()
 	model.InitRedis()
+	//utils.InitListen()
 	route.Init()
 }
