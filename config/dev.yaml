@@ -1,13 +1,16 @@
 db:
-  host: 127.0.0.1
-  userName: xxx
-  password: xxx
-  port: 3306
-  dataBase: xxx
+  host: xxxx
+  userName: xxxx
+  password: xxxx@
+  port: xxxx
+  dataBase: xxxx
 doubao:
-  apiKey: xxxxxxxxxx
-  modelId: xxxxxx
+  apiKey: xxxx
+  modelId: xxxx
 redis:
-  address: xxxxxx:6379
+  address: xxxx
   password: xxxx
-  db: 0
+  db: xxxx
+contracts:
+  address:
+    guideNFT: xxxx
