@@ -1,6 +1,7 @@
 package ether
 
 import (
+	"fmt"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/spf13/viper"
 )
@@ -9,6 +10,7 @@ import (
 func EthConnector() (*ethclient.Client, error) {
 	c, err := ethclient.Dial(viper.GetString("ethereum.address"))
 	if err != nil {
+		fmt.Println("Failed to connect to Ethereum client:", err)
 		return nil, err // 返回错误，而不是使用 log.Fatal
 	}
 	return c, nil // 返回建立的连接

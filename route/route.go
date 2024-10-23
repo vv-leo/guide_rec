@@ -4,6 +4,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"web3/controller"
+	"web3/ether/call"
 )
 
 func Init() {
@@ -35,6 +36,8 @@ func Init() {
 	route.GET("/user/thumbsUped", func(c *gin.Context) { controller.UserThumbsUped(c) })
 
 	route.GET("/user/followed", func(c *gin.Context) { controller.UserFollowed(c) })
+
+	route.GET("/test/ListNFT", func(c *gin.Context) { call.ListNFT() })
 
 	route.Run(":8080")
 }
