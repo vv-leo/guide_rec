@@ -15,7 +15,7 @@ func Init() {
 
 	route.GET("/ai/generateGuide", func(c *gin.Context) { controller.GenerateGuide(c) })
 
-	route.GET("/ai/generateGuideSSE", func(c *gin.Context) { controller.GenerateGuideSSE(c) })
+	route.GET("/ai/generateGuideSSE", func(c *gin.Context) { go func() { controller.GenerateGuideSSE(c) }() })
 
 	route.POST("/guide/create", func(c *gin.Context) { controller.GuideCreate(c) })
 
@@ -37,7 +37,13 @@ func Init() {
 
 	route.GET("/user/followed", func(c *gin.Context) { controller.UserFollowed(c) })
 
+	//------------------------test------------------------
+
 	route.GET("/test/ListNFT", func(c *gin.Context) { call.ListNFT() })
+
+	route.GET("/test/DeListNFT", func(c *gin.Context) { call.DeListNFT() })
+
+	route.GET("/test/Buy", func(c *gin.Context) { call.Buy() })
 
 	route.Run(":8080")
 }

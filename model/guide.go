@@ -34,7 +34,10 @@ type GuideDao interface {
 	DetailGuide(id string) (guide *Guide, err error)
 	ThumbsUp(id string, status string) (success bool, err error)
 	ListByOwner(owner string) (guides *[]Guide, err error)
+	UpdateOwner(id string, owner string) (success bool, err error)
 	Rec() (guideRecs *[]GuideRec, err error)
+	List(id string, price string) (bool bool, err error)
+	DeList(id string) (bool bool, err error)
 }
 
 func NewGuideDao() GuideDao {
@@ -79,6 +82,44 @@ func (s *guideDao) ThumbsUp(id string, status string) (bool bool, err error) {
 	} else {
 		guide.LikeCount--
 	}
+	if resS := s.operateTable().Save(&guide); resS.Error != nil {
+		return false, resS.Error
+	}
+	return true, err
+}
+
+func (s *guideDao) List(id string, price string) (bool bool, err error) {
+	var guide Guide
+	if resF := s.operateTable().First(&guide, id); resF.Error != nil {
+		return false, resF.Error
+	}
+	guide.Price = price
+	guide.SalesStatus = 1
+	if resS := s.operateTable().Save(&guide); resS.Error != nil {
+		return false, resS.Error
+	}
+	return true, err
+}
+
+func (s *guideDao) DeList(id string) (bool bool, err error) {
+	var guide Guide
+	if resF := s.operateTable().First(&guide, id); resF.Error != nil {
+		return false, resF.Error
+	}
+	guide.Price = ""
+	guide.SalesStatus = 0
+	if resS := s.operateTable().Save(&guide); resS.Error != nil {
+		return false, resS.Error
+	}
+	return true, err
+}
+
+func (s *guideDao) UpdateOwner(id string, owner string) (success bool, err error) {
+	var guide Guide
+	if resF := s.operateTable().First(&guide, id); resF.Error != nil {
+		return false, resF.Error
+	}
+	guide.Owner = owner
 	if resS := s.operateTable().Save(&guide); resS.Error != nil {
 		return false, resS.Error
 	}

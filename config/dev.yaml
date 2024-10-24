@@ -1,16 +1,20 @@
 db:
-  host: xxxx
-  userName: xxxx
-  password: xxxx@
-  port: xxxx
-  dataBase: xxxx
+  host: xxx
+  userName: xx
+  password: xxx
+  port: xx
+  dataBase: brewery
 doubao:
-  apiKey: xxxx
-  modelId: xxxx
+  apiKey: xxx
+  modelId: xxx
 redis:
-  address: xxxx
-  password: xxxx
-  db: xxxx
+  address: xxx
+  password: xx
+  db: xx
+ethereum:
+  addr:
+    ws: ws://127.0.0.1:8545
+    http: http://127.0.0.1:8545/
 contracts:
   address:
-    guideNFT: xxxx
+    guideNFT: 0x5FbDB2315678afecb367f032d93F642f64180aa3

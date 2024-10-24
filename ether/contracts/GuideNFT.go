@@ -31,7 +31,7 @@ var (
 
 // GuideNFTMetaData contains all meta data concerning the GuideNFT contract.
 var GuideNFTMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"ERC721IncorrectOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ERC721InsufficientApproval\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"approver\",\"type\":\"address\"}],\"name\":\"ERC721InvalidApprover\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"ERC721InvalidOperator\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"ERC721InvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"ERC721InvalidReceiver\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ERC721InvalidSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ERC721NonexistentToken\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"NFTDelisted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"NFTListed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"_tokenInfos\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"buyNFT\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deListNFT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"isListed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"isMinted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"listNFT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"nftOwners\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"ERC721IncorrectOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ERC721InsufficientApproval\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"approver\",\"type\":\"address\"}],\"name\":\"ERC721InvalidApprover\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"ERC721InvalidOperator\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"ERC721InvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"ERC721InvalidReceiver\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ERC721InvalidSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ERC721NonexistentToken\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"NFTBought\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"NFTDelisted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"NFTListed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"_tokenInfos\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isListed\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isMinted\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"buyNFT\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"deListNFT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"}],\"name\":\"listNFT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // GuideNFTABI is the input ABI used to generate the binding from.
@@ -182,32 +182,56 @@ func (_GuideNFT *GuideNFTTransactorRaw) Transact(opts *bind.TransactOpts, method
 
 // TokenInfos is a free data retrieval call binding the contract method 0x8676192b.
 //
-// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price)
-func (_GuideNFT *GuideNFTCaller) TokenInfos(opts *bind.CallOpts, arg0 *big.Int) (*big.Int, error) {
+// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price, address owner, bool isListed, bool isMinted)
+func (_GuideNFT *GuideNFTCaller) TokenInfos(opts *bind.CallOpts, arg0 *big.Int) (struct {
+	Price    *big.Int
+	Owner    common.Address
+	IsListed bool
+	IsMinted bool
+}, error) {
 	var out []interface{}
 	err := _GuideNFT.contract.Call(opts, &out, "_tokenInfos", arg0)
 
+	outstruct := new(struct {
+		Price    *big.Int
+		Owner    common.Address
+		IsListed bool
+		IsMinted bool
+	})
 	if err != nil {
-		return *new(*big.Int), err
+		return *outstruct, err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Price = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Owner = *abi.ConvertType(out[1], new(common.Address)).(*common.Address)
+	outstruct.IsListed = *abi.ConvertType(out[2], new(bool)).(*bool)
+	outstruct.IsMinted = *abi.ConvertType(out[3], new(bool)).(*bool)
 
-	return out0, err
+	return *outstruct, err
 
 }
 
 // TokenInfos is a free data retrieval call binding the contract method 0x8676192b.
 //
-// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price)
-func (_GuideNFT *GuideNFTSession) TokenInfos(arg0 *big.Int) (*big.Int, error) {
+// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price, address owner, bool isListed, bool isMinted)
+func (_GuideNFT *GuideNFTSession) TokenInfos(arg0 *big.Int) (struct {
+	Price    *big.Int
+	Owner    common.Address
+	IsListed bool
+	IsMinted bool
+}, error) {
 	return _GuideNFT.Contract.TokenInfos(&_GuideNFT.CallOpts, arg0)
 }
 
 // TokenInfos is a free data retrieval call binding the contract method 0x8676192b.
 //
-// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price)
-func (_GuideNFT *GuideNFTCallerSession) TokenInfos(arg0 *big.Int) (*big.Int, error) {
+// Solidity: function _tokenInfos(uint256 ) view returns(uint256 price, address owner, bool isListed, bool isMinted)
+func (_GuideNFT *GuideNFTCallerSession) TokenInfos(arg0 *big.Int) (struct {
+	Price    *big.Int
+	Owner    common.Address
+	IsListed bool
+	IsMinted bool
+}, error) {
 	return _GuideNFT.Contract.TokenInfos(&_GuideNFT.CallOpts, arg0)
 }
 
@@ -304,68 +328,6 @@ func (_GuideNFT *GuideNFTCallerSession) IsApprovedForAll(owner common.Address, o
 	return _GuideNFT.Contract.IsApprovedForAll(&_GuideNFT.CallOpts, owner, operator)
 }
 
-// IsListed is a free data retrieval call binding the contract method 0xfcce4883.
-//
-// Solidity: function isListed(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTCaller) IsListed(opts *bind.CallOpts, arg0 *big.Int) (bool, error) {
-	var out []interface{}
-	err := _GuideNFT.contract.Call(opts, &out, "isListed", arg0)
-
-	if err != nil {
-		return *new(bool), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
-
-	return out0, err
-
-}
-
-// IsListed is a free data retrieval call binding the contract method 0xfcce4883.
-//
-// Solidity: function isListed(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTSession) IsListed(arg0 *big.Int) (bool, error) {
-	return _GuideNFT.Contract.IsListed(&_GuideNFT.CallOpts, arg0)
-}
-
-// IsListed is a free data retrieval call binding the contract method 0xfcce4883.
-//
-// Solidity: function isListed(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTCallerSession) IsListed(arg0 *big.Int) (bool, error) {
-	return _GuideNFT.Contract.IsListed(&_GuideNFT.CallOpts, arg0)
-}
-
-// IsMinted is a free data retrieval call binding the contract method 0x33c41a90.
-//
-// Solidity: function isMinted(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTCaller) IsMinted(opts *bind.CallOpts, arg0 *big.Int) (bool, error) {
-	var out []interface{}
-	err := _GuideNFT.contract.Call(opts, &out, "isMinted", arg0)
-
-	if err != nil {
-		return *new(bool), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
-
-	return out0, err
-
-}
-
-// IsMinted is a free data retrieval call binding the contract method 0x33c41a90.
-//
-// Solidity: function isMinted(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTSession) IsMinted(arg0 *big.Int) (bool, error) {
-	return _GuideNFT.Contract.IsMinted(&_GuideNFT.CallOpts, arg0)
-}
-
-// IsMinted is a free data retrieval call binding the contract method 0x33c41a90.
-//
-// Solidity: function isMinted(uint256 ) view returns(bool)
-func (_GuideNFT *GuideNFTCallerSession) IsMinted(arg0 *big.Int) (bool, error) {
-	return _GuideNFT.Contract.IsMinted(&_GuideNFT.CallOpts, arg0)
-}
-
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
@@ -395,37 +357,6 @@ func (_GuideNFT *GuideNFTSession) Name() (string, error) {
 // Solidity: function name() view returns(string)
 func (_GuideNFT *GuideNFTCallerSession) Name() (string, error) {
 	return _GuideNFT.Contract.Name(&_GuideNFT.CallOpts)
-}
-
-// NftOwners is a free data retrieval call binding the contract method 0xbbd94c2f.
-//
-// Solidity: function nftOwners(uint256 ) view returns(address)
-func (_GuideNFT *GuideNFTCaller) NftOwners(opts *bind.CallOpts, arg0 *big.Int) (common.Address, error) {
-	var out []interface{}
-	err := _GuideNFT.contract.Call(opts, &out, "nftOwners", arg0)
-
-	if err != nil {
-		return *new(common.Address), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
-
-	return out0, err
-
-}
-
-// NftOwners is a free data retrieval call binding the contract method 0xbbd94c2f.
-//
-// Solidity: function nftOwners(uint256 ) view returns(address)
-func (_GuideNFT *GuideNFTSession) NftOwners(arg0 *big.Int) (common.Address, error) {
-	return _GuideNFT.Contract.NftOwners(&_GuideNFT.CallOpts, arg0)
-}
-
-// NftOwners is a free data retrieval call binding the contract method 0xbbd94c2f.
-//
-// Solidity: function nftOwners(uint256 ) view returns(address)
-func (_GuideNFT *GuideNFTCallerSession) NftOwners(arg0 *big.Int) (common.Address, error) {
-	return _GuideNFT.Contract.NftOwners(&_GuideNFT.CallOpts, arg0)
 }
 
 // OwnerOf is a free data retrieval call binding the contract method 0x6352211e.
@@ -575,65 +506,65 @@ func (_GuideNFT *GuideNFTTransactorSession) Approve(to common.Address, tokenId *
 
 // BuyNFT is a paid mutator transaction binding the contract method 0x51ed8288.
 //
-// Solidity: function buyNFT(uint256 tokenId) payable returns()
-func (_GuideNFT *GuideNFTTransactor) BuyNFT(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.contract.Transact(opts, "buyNFT", tokenId)
+// Solidity: function buyNFT(uint256 _tokenId) payable returns()
+func (_GuideNFT *GuideNFTTransactor) BuyNFT(opts *bind.TransactOpts, _tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.contract.Transact(opts, "buyNFT", _tokenId)
 }
 
 // BuyNFT is a paid mutator transaction binding the contract method 0x51ed8288.
 //
-// Solidity: function buyNFT(uint256 tokenId) payable returns()
-func (_GuideNFT *GuideNFTSession) BuyNFT(tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.BuyNFT(&_GuideNFT.TransactOpts, tokenId)
+// Solidity: function buyNFT(uint256 _tokenId) payable returns()
+func (_GuideNFT *GuideNFTSession) BuyNFT(_tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.BuyNFT(&_GuideNFT.TransactOpts, _tokenId)
 }
 
 // BuyNFT is a paid mutator transaction binding the contract method 0x51ed8288.
 //
-// Solidity: function buyNFT(uint256 tokenId) payable returns()
-func (_GuideNFT *GuideNFTTransactorSession) BuyNFT(tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.BuyNFT(&_GuideNFT.TransactOpts, tokenId)
+// Solidity: function buyNFT(uint256 _tokenId) payable returns()
+func (_GuideNFT *GuideNFTTransactorSession) BuyNFT(_tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.BuyNFT(&_GuideNFT.TransactOpts, _tokenId)
 }
 
 // DeListNFT is a paid mutator transaction binding the contract method 0x9f606dc2.
 //
-// Solidity: function deListNFT(uint256 tokenId) returns()
-func (_GuideNFT *GuideNFTTransactor) DeListNFT(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.contract.Transact(opts, "deListNFT", tokenId)
+// Solidity: function deListNFT(uint256 _tokenId) returns()
+func (_GuideNFT *GuideNFTTransactor) DeListNFT(opts *bind.TransactOpts, _tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.contract.Transact(opts, "deListNFT", _tokenId)
 }
 
 // DeListNFT is a paid mutator transaction binding the contract method 0x9f606dc2.
 //
-// Solidity: function deListNFT(uint256 tokenId) returns()
-func (_GuideNFT *GuideNFTSession) DeListNFT(tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.DeListNFT(&_GuideNFT.TransactOpts, tokenId)
+// Solidity: function deListNFT(uint256 _tokenId) returns()
+func (_GuideNFT *GuideNFTSession) DeListNFT(_tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.DeListNFT(&_GuideNFT.TransactOpts, _tokenId)
 }
 
 // DeListNFT is a paid mutator transaction binding the contract method 0x9f606dc2.
 //
-// Solidity: function deListNFT(uint256 tokenId) returns()
-func (_GuideNFT *GuideNFTTransactorSession) DeListNFT(tokenId *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.DeListNFT(&_GuideNFT.TransactOpts, tokenId)
+// Solidity: function deListNFT(uint256 _tokenId) returns()
+func (_GuideNFT *GuideNFTTransactorSession) DeListNFT(_tokenId *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.DeListNFT(&_GuideNFT.TransactOpts, _tokenId)
 }
 
 // ListNFT is a paid mutator transaction binding the contract method 0x94383f14.
 //
-// Solidity: function listNFT(uint256 tokenId, uint256 price) returns(uint256)
-func (_GuideNFT *GuideNFTTransactor) ListNFT(opts *bind.TransactOpts, tokenId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.contract.Transact(opts, "listNFT", tokenId, price)
+// Solidity: function listNFT(uint256 _tokenId, uint256 _price) returns(uint256)
+func (_GuideNFT *GuideNFTTransactor) ListNFT(opts *bind.TransactOpts, _tokenId *big.Int, _price *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.contract.Transact(opts, "listNFT", _tokenId, _price)
 }
 
 // ListNFT is a paid mutator transaction binding the contract method 0x94383f14.
 //
-// Solidity: function listNFT(uint256 tokenId, uint256 price) returns(uint256)
-func (_GuideNFT *GuideNFTSession) ListNFT(tokenId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.ListNFT(&_GuideNFT.TransactOpts, tokenId, price)
+// Solidity: function listNFT(uint256 _tokenId, uint256 _price) returns(uint256)
+func (_GuideNFT *GuideNFTSession) ListNFT(_tokenId *big.Int, _price *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.ListNFT(&_GuideNFT.TransactOpts, _tokenId, _price)
 }
 
 // ListNFT is a paid mutator transaction binding the contract method 0x94383f14.
 //
-// Solidity: function listNFT(uint256 tokenId, uint256 price) returns(uint256)
-func (_GuideNFT *GuideNFTTransactorSession) ListNFT(tokenId *big.Int, price *big.Int) (*types.Transaction, error) {
-	return _GuideNFT.Contract.ListNFT(&_GuideNFT.TransactOpts, tokenId, price)
+// Solidity: function listNFT(uint256 _tokenId, uint256 _price) returns(uint256)
+func (_GuideNFT *GuideNFTTransactorSession) ListNFT(_tokenId *big.Int, _price *big.Int) (*types.Transaction, error) {
+	return _GuideNFT.Contract.ListNFT(&_GuideNFT.TransactOpts, _tokenId, _price)
 }
 
 // SafeTransferFrom is a paid mutator transaction binding the contract method 0x42842e0e.
@@ -1030,6 +961,170 @@ func (_GuideNFT *GuideNFTFilterer) WatchApprovalForAll(opts *bind.WatchOpts, sin
 func (_GuideNFT *GuideNFTFilterer) ParseApprovalForAll(log types.Log) (*GuideNFTApprovalForAll, error) {
 	event := new(GuideNFTApprovalForAll)
 	if err := _GuideNFT.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// GuideNFTNFTBoughtIterator is returned from FilterNFTBought and is used to iterate over the raw logs and unpacked data for NFTBought events raised by the GuideNFT contract.
+type GuideNFTNFTBoughtIterator struct {
+	Event *GuideNFTNFTBought // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *GuideNFTNFTBoughtIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(GuideNFTNFTBought)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(GuideNFTNFTBought)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *GuideNFTNFTBoughtIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *GuideNFTNFTBoughtIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// GuideNFTNFTBought represents a NFTBought event raised by the GuideNFT contract.
+type GuideNFTNFTBought struct {
+	Buyer     common.Address
+	Seller    common.Address
+	TokenId   *big.Int
+	Price     *big.Int
+	Timestamp *big.Int
+	Raw       types.Log // Blockchain specific contextual infos
+}
+
+// FilterNFTBought is a free log retrieval operation binding the contract event 0x7a0a7460f8075212b07f19a9ab30b15d4d17c0984bfc2670bcd0430a46913d87.
+//
+// Solidity: event NFTBought(address indexed buyer, address indexed seller, uint256 indexed tokenId, uint256 price, uint256 timestamp)
+func (_GuideNFT *GuideNFTFilterer) FilterNFTBought(opts *bind.FilterOpts, buyer []common.Address, seller []common.Address, tokenId []*big.Int) (*GuideNFTNFTBoughtIterator, error) {
+
+	var buyerRule []interface{}
+	for _, buyerItem := range buyer {
+		buyerRule = append(buyerRule, buyerItem)
+	}
+	var sellerRule []interface{}
+	for _, sellerItem := range seller {
+		sellerRule = append(sellerRule, sellerItem)
+	}
+	var tokenIdRule []interface{}
+	for _, tokenIdItem := range tokenId {
+		tokenIdRule = append(tokenIdRule, tokenIdItem)
+	}
+
+	logs, sub, err := _GuideNFT.contract.FilterLogs(opts, "NFTBought", buyerRule, sellerRule, tokenIdRule)
+	if err != nil {
+		return nil, err
+	}
+	return &GuideNFTNFTBoughtIterator{contract: _GuideNFT.contract, event: "NFTBought", logs: logs, sub: sub}, nil
+}
+
+// WatchNFTBought is a free log subscription operation binding the contract event 0x7a0a7460f8075212b07f19a9ab30b15d4d17c0984bfc2670bcd0430a46913d87.
+//
+// Solidity: event NFTBought(address indexed buyer, address indexed seller, uint256 indexed tokenId, uint256 price, uint256 timestamp)
+func (_GuideNFT *GuideNFTFilterer) WatchNFTBought(opts *bind.WatchOpts, sink chan<- *GuideNFTNFTBought, buyer []common.Address, seller []common.Address, tokenId []*big.Int) (event.Subscription, error) {
+
+	var buyerRule []interface{}
+	for _, buyerItem := range buyer {
+		buyerRule = append(buyerRule, buyerItem)
+	}
+	var sellerRule []interface{}
+	for _, sellerItem := range seller {
+		sellerRule = append(sellerRule, sellerItem)
+	}
+	var tokenIdRule []interface{}
+	for _, tokenIdItem := range tokenId {
+		tokenIdRule = append(tokenIdRule, tokenIdItem)
+	}
+
+	logs, sub, err := _GuideNFT.contract.WatchLogs(opts, "NFTBought", buyerRule, sellerRule, tokenIdRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(GuideNFTNFTBought)
+				if err := _GuideNFT.contract.UnpackLog(event, "NFTBought", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseNFTBought is a log parse operation binding the contract event 0x7a0a7460f8075212b07f19a9ab30b15d4d17c0984bfc2670bcd0430a46913d87.
+//
+// Solidity: event NFTBought(address indexed buyer, address indexed seller, uint256 indexed tokenId, uint256 price, uint256 timestamp)
+func (_GuideNFT *GuideNFTFilterer) ParseNFTBought(log types.Log) (*GuideNFTNFTBought, error) {
+	event := new(GuideNFTNFTBought)
+	if err := _GuideNFT.contract.UnpackLog(event, "NFTBought", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
