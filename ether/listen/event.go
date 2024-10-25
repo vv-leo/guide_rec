@@ -117,7 +117,7 @@ func EventListen() {
 					event := EventNFTDelisted{}
 
 					// 从 Topics 和 Data 中解析数据
-					tokenId := new(big.Int).SetBytes(vLog.Topics[1][12:]) // 解析 tokenId
+					tokenId := new(big.Int).SetBytes(vLog.Topics[2][12:]) // 解析 tokenId
 
 					event.Operator = common.HexToAddress(vLog.Topics[1].Hex())
 					event.TokenId = tokenId

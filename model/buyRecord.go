@@ -13,6 +13,7 @@ type BuyRecord struct {
 
 type BuyRecordDao interface {
 	CreateBuyRecord(buyRecord BuyRecord) (success bool, err error)
+	FindByGuideId(guideId string) (buyRecords []BuyRecord, err error)
 }
 
 func NewBuyRecord() BuyRecordDao {
@@ -31,4 +32,11 @@ func (s *buyRecordDao) CreateBuyRecord(buyRecord BuyRecord) (success bool, err e
 		return false, res.Error
 	}
 	return true, nil
+}
+
+func (s *buyRecordDao) FindByGuideId(guideId string) (buyRecords []BuyRecord, err error) {
+	if res := s.operateTable().Where("guide_id = ?", guideId).Find(&buyRecords); res.Error != nil {
+		return nil, res.Error
+	}
+	return buyRecords, nil
 }

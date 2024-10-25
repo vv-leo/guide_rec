@@ -37,6 +37,8 @@ func Init() {
 
 	route.GET("/user/followed", func(c *gin.Context) { controller.UserFollowed(c) })
 
+	route.GET("/buyRecord/list", func(c *gin.Context) { controller.BuyRecordListByGuideId(c) })
+
 	//------------------------test------------------------
 
 	route.GET("/test/ListNFT", func(c *gin.Context) { call.ListNFT() })

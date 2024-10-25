@@ -11,7 +11,7 @@ type Guide struct {
 	SalesStatus int    `json:"sales_status"`
 	Price       string `json:"price"`
 	Content     string `json:"content"`
-	Description string `json:"description"`
+	Title       string `json:"title"`
 	LikeCount   int    `json:"like_count"`
 	CreateTime  int64  `json:"create_time"`
 }
@@ -21,6 +21,7 @@ type GuideRec struct {
 	Owner           string `json:"owner"`
 	SalesStatus     int    `json:"sales_status"`
 	Price           string `json:"price"`
+	Title           string `json:"title"`
 	Content         string `json:"content"`
 	LikeCount       int    `json:"like_count"`
 	CreateTime      int64  `json:"create_time"`
@@ -128,7 +129,7 @@ func (s *guideDao) UpdateOwner(id string, owner string) (success bool, err error
 
 func (s *guideDao) Rec() (guideRecs *[]GuideRec, err error) {
 	if res := s.operateTable().Select("guide.id AS Id, guide.owner AS Owner,guide.sales_status AS SalesStatus,guide.price AS Price,guide.content AS Content," +
-		"guide.like_count AS LikeCount,guide.create_time AS CreateTime,user.fans_count AS FansCount, user.avatar AS Avatar,user.description AS UserDescription").
+		"guide.title AS Title guide.like_count AS LikeCount,guide.create_time AS CreateTime,user.fans_count AS FansCount, user.avatar AS Avatar,user.description AS UserDescription").
 		Joins("guide LEFT JOIN user ON guide.owner = user.id").
 		Scan(&guideRecs); res.Error != nil {
 		return guideRecs, res.Error
