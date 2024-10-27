@@ -15,7 +15,7 @@ func Init() {
 
 	route.GET("/ai/generateGuide", func(c *gin.Context) { controller.GenerateGuide(c) })
 
-	route.GET("/ai/generateGuideSSE", func(c *gin.Context) { go func() { controller.GenerateGuideSSE(c) }() })
+	route.GET("/ai/generateGuideSSE", func(c *gin.Context) { controller.GenerateGuideSSE(c) })
 
 	route.POST("/guide/create", func(c *gin.Context) { controller.GuideCreate(c) })
 

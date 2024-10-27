@@ -23,44 +23,78 @@ func ListNFT() {
 	client, err := ether.EthConnector()
 	if err != nil {
 		log.Printf("Failed to connect to Ethereum client: %v", err)
+		return
 	}
 
 	// 设置合约地址
-	contractAddress := viper.GetString("contracts.address.guideNFT") // 确保这是正确的合约地址
+	contractAddress := viper.GetString("contracts.address.guideNFT")
 	nft, err := contracts.NewGuideNFT(common.HexToAddress(contractAddress), client)
 	if err != nil {
 		log.Printf("Failed to instantiate contract: %v", err)
+		return
 	}
 
-	// 私钥应安全存储，以下为示例
+	// 私钥应安全存储
 	privateKeyHex := privateKey1
 	privateKey, err := crypto.HexToECDSA(privateKeyHex)
 	if err != nil {
 		log.Printf("Error converting private key: %v", err)
+		return
 	}
 
 	// 获取链 ID
 	chainID, err := client.NetworkID(context.Background())
 	if err != nil {
 		log.Printf("Failed to get network ID: %v", err)
+		return
 	}
 
 	// 创建带有私钥的授权对象
 	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chainID)
 	if err != nil {
 		log.Printf("Failed to create auth object: %v", err)
+		return
 	}
-	// 调用合约的 ListNFT 方法
-	tokenId := big.NewInt(5) // 设定要上架的 token ID
-	price := big.NewInt(77)  // 设定价格
-	_, err = nft.ListNFT(auth, tokenId, price)
 
+	// 获取当前地址的余额
+	address := crypto.PubkeyToAddress(privateKey.PublicKey)
+	balance, err := client.BalanceAt(context.Background(), address, nil)
+	if err != nil {
+		log.Printf("Failed to get balance: %v", err)
+		return
+	}
+	log.Printf("Current balance: %s wei", balance.String())
+
+	// 设定要上架的 token ID 和价格
+	tokenId := big.NewInt(5)
+	price := big.NewInt(77)
+
+	// 获取预计的燃气费用
+	gasLimit := uint64(21000)
+	gasPrice, err := client.SuggestGasPrice(context.Background())
+	if err != nil {
+		log.Printf("Failed to get gas price: %v", err)
+		return
+	}
+	estimatedGasFee := new(big.Int).Mul(big.NewInt(int64(gasLimit)), gasPrice)
+	log.Printf("Estimated gas fee: %s wei", estimatedGasFee.String())
+
+	// 计算总费用
+	totalCost := new(big.Int).Add(price, estimatedGasFee)
+	if balance.Cmp(totalCost) < 0 {
+		log.Println("Insufficient funds for transfer")
+		return
+	}
+
+	// 调用合约的 ListNFT 方法
+	_, err = nft.ListNFT(auth, tokenId, price)
 	if err != nil {
 		log.Printf("Failed to list NFT: %v", err)
+		return
 	}
 
+	// 获取 token 信息
 	infos, err := nft.TokenInfos(&bind.CallOpts{}, tokenId)
-
 	if err != nil {
 		log.Printf("Failed to get token infos: %v", err)
 	} else {

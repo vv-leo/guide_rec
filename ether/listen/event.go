@@ -47,11 +47,12 @@ var buyRecordDao = model.NewBuyRecord()
 func EventListen() {
 	go func() {
 
-		addr := viper.GetString("ethereum.addr.ws")
+		addr := viper.GetString("ethereum.addr.wss")
 		client, err := ethclient.Dial(addr)
 		if err != nil {
 			log.Printf("Failed to connect to Ethereum client: %v", err)
 		}
+		defer client.Close()
 
 		contractAddress := common.HexToAddress(viper.GetString("contracts.address.guideNFT"))
 

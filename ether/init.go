@@ -8,7 +8,7 @@ import (
 
 // EthConnector 封装了与以太坊节点的连接逻辑
 func EthConnector() (*ethclient.Client, error) {
-	c, err := ethclient.Dial(viper.GetString("ethereum.addr.http"))
+	c, err := ethclient.Dial(viper.GetString("ethereum.addr.https"))
 	if err != nil {
 		fmt.Println("Failed to connect to Ethereum client:", err)
 		return nil, err // 返回错误，而不是使用 log.Fatal
