@@ -46,7 +46,7 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 	return res, err
 }
 
-func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
+func GetByDoubaoSSE(role string, cueWord string, ch chan string) {
 	client := arkruntime.NewClientWithApiKey(
 		viper.GetString("doubao.apiKey"),
 		arkruntime.WithBaseUrl("https://ark.cn-beijing.volces.com/api/v3"),
@@ -91,6 +91,12 @@ func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
 		}
 
 		if len(recv.Choices) > 0 {
+			// 检查管道是否关
+			closer := AssignPipeCloser(ch)
+			if closer() {
+				fmt.Println("The pipe has been closed and data cannot be sent.")
+				return
+			}
 			ch <- fmt.Sprintf(recv.Choices[0].Delta.Content)
 		}
 	}
