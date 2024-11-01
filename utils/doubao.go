@@ -46,7 +46,7 @@ func GetByDoubao(role string, cueWord string) (res string, err error) {
 	return res, err
 }
 
-func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
+func GetByDoubaoSSE(role string, prompt string, ch chan<- string) {
 	client := arkruntime.NewClientWithApiKey(
 		viper.GetString("doubao.apiKey"),
 		arkruntime.WithBaseUrl("https://ark.cn-beijing.volces.com/api/v3"),
@@ -67,7 +67,7 @@ func GetByDoubaoSSE(role string, cueWord string, ch chan<- string) {
 			{
 				Role: model.ChatMessageRoleUser,
 				Content: &model.ChatCompletionMessageContent{
-					StringValue: volcengine.String(cueWord),
+					StringValue: volcengine.String(prompt),
 				},
 			},
 		},
