@@ -43,13 +43,16 @@ func (s *userDao) Create(user *User) (success bool, err error) {
 }
 
 func (s *userDao) DetailUser(id string) (user *User, err error) {
-	if res := s.operateTable().First(&user, id); res.Error != nil {
+	if res := s.operateTable().Where("id", id).Find(&user); res.Error != nil {
 		// 检查错误类型，确定是否是记录未找到
 		if errors.Is(res.Error, gorm.ErrRecordNotFound) {
 			// 返回一个空的用户对象
 			return nil, nil // 返回空的用户实例
 		}
 		return nil, res.Error
+	}
+	if user.Id == "" || len(user.Id) == 0 {
+		return nil, nil
 	}
 	return user, nil
 }
